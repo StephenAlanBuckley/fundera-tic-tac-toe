@@ -45,9 +45,13 @@ app.post("/games/", (req, res) => {
   let computer_x = Math.floor(Math.random() * 2) < 1;
   let computer = computer_x ? "X" : "Y";
   let game_id = -1;
+
   client.connect();
   client.query("INSERT INTO games (board_state, computer) values('---------', '" + computer + "') RETURNING game_id;", (err, res) => {
-      if (err) throw err;
+      if (err) {
+        client.end();
+        throw err;
+      }
       for (let row of res.rows) {
           game_id = row;
           console.log("created game " + JSON.stringify(row));

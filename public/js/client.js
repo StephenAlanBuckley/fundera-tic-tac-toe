@@ -45,6 +45,8 @@ function updateGame() {
 }
 
 function playerMoved(index) {
+  let playerMovedCoords = translateIndexToCoordinate(index);
+  board[playerMovedCoords.x][playerMovedCoords.y];
 }
 
 $(".board-space").on('click', function() {
