@@ -54,6 +54,7 @@ app.post("/games/", (req, res) => {
       }
       client.end();
   });
+  res.send(JSON.stringify(game_id);
 });
 
 
