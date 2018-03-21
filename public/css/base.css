@@ -1,0 +1,4 @@
+.main-content {
+  display: grid;
+  grid-template-columns: 35% 10% 10% 10% 35%
+}
