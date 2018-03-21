@@ -52,7 +52,6 @@ app.post("/games/", (req, res) => {
           game_id = row;
           console.log("created game " + JSON.stringify(row));
       }
-      pool.end();
   });
   res.json(game_id);
 });
