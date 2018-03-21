@@ -1,4 +1,18 @@
-.main-content {
+.grid-container {
   display: grid;
-  grid-template-columns: 35% 10% 10% 10% 35%
+  grid-template-columns: 35% 30% 35%;
+  grid-template-rows: repeat(5, 20%);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 30% 30% 30%;
+  grid-gap: 8px;
+  padding-left: 5%;
+}
+
+.board-space {
+  text-align: center;
+  margin: auto auto;
 }

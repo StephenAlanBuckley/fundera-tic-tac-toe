@@ -1,7 +1,15 @@
 extend base
 block content
+  .margin
+  .header
+    h1 FUNDERA
+  .margin
+  .margin
   .board
     each val in [0,1,2,3,4,5,6,7,8]
-      div(class='board_space', data-space-index=val)
+      div(class='board-space', data-space-index=val)
+        p -
+  .margin
+  .margin
   .wins-text
     p WINS
