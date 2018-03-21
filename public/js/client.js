@@ -7,6 +7,10 @@ let board = [];
 
 //get the game id from the server
 function initGame() {
+  $.post("/games/", {body: "this data don't mattah"}, function(data) {
+    console.log("hit the server!");
+    game_id = game_id;
+  });
 }
 
 function initBoard() {
@@ -50,4 +54,6 @@ $(".board-space").on('click', function() {
 });
 
 window.onload = function() {
+  initBoard();
+  initGame();
 }
