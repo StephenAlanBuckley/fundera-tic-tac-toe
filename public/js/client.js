@@ -30,6 +30,13 @@ function translateIndexToCoordinate(index) {
 }
 
 function turnBoardIntoString() {
+  let boardString = "";
+  for (var i = 0; i< 3; i++) {
+    for (var j = 0; j< 3; j++) {
+      boardString += board[i][j]
+    }
+  }
+  return boardString;
 }
 
 //computer player makes a move on the board
