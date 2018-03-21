@@ -5,11 +5,11 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-const { Client } = require('pg');
+const { Pool, Client } = require('pg');
 
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
+const pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: true,
 });
 
 
@@ -29,14 +29,12 @@ app.get("/", (req, res) => {
 app.get("/wins/", (req, res) => {
   let wins = 0;
 
-  client.connect();
-  client.query('Select COUNT(*) FROM games WHERE completed AND winner != computer', (err, res) => {
+  pool.query('Select COUNT(*) FROM games WHERE completed AND winner != computer', (err, res) => {
       if (err) throw err;
         for (let row of res.rows) {
               wins = row;
               console.log(JSON.stringify(row));
                 }
-          client.end();
   });
   res.json(wins)
 });
@@ -46,17 +44,15 @@ app.post("/games/", (req, res) => {
   let computer = computer_x ? "X" : "Y";
   let game_id = -1;
 
-  client.connect();
-  client.query("INSERT INTO games (board_state, computer) values('---------', '" + computer + "') RETURNING game_id;", (err, res) => {
+  pool.query("INSERT INTO games (board_state, computer) values('---------', '" + computer + "') RETURNING game_id;", (err, res) => {
       if (err) {
-        client.end();
         throw err;
       }
       for (let row of res.rows) {
           game_id = row;
           console.log("created game " + JSON.stringify(row));
       }
-      client.end();
+      pool.end();
   });
   res.json(game_id);
 });
