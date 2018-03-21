@@ -1,0 +1,29 @@
+{
+  "name": "fundera-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Making a tic tac toe site for Fundera's interview process",
+  "main": "server.js",
+  "scripts": {
+    "test": "CI=true npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenAlanBuckley/fundera-tic-tac-toe.git"
+  },
+  "keywords": [
+    "tic",
+    "tac",
+    "toe",
+    "fundera"
+  ],
+  "author": "Stephen Buckley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StephenAlanBuckley/fundera-tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/StephenAlanBuckley/fundera-tic-tac-toe#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.2"
+  }
+}
