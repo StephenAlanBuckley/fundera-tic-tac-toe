@@ -41,6 +41,9 @@ app.get("/wins/", (req, res) => {
   res.json(wins)
 });
 
+app.get("/games/:game_id", (req, res) => {
+});
+
 
 app.listen(port, () => {
   console.log('listening on ' + port);
